@@ -1,0 +1,45 @@
+{% extends "_base.htm" %}
+{% block bodycontent %}
+      <h1>The Rapid Team - Film API</h1>
+      <p>
+      <table>
+          <tr>
+            <th>Search Term</th>
+            <th>Status code</th>
+          </tr>
+          
+          <tr>
+            <td>{{ search_term }}</td>
+            <td>{{ status_code }}</td>
+          </tr>
+      </table>
+	
+	<form action="#" method="get">
+	Search: <input type="text" name="s" />
+	</form>
+	
+	<table>
+	{% for tomato in results.tomatosdata.movies %}
+		<tr>
+
+			<td>
+			<table>
+				<tr>
+					<th>Title</th>
+					<td>
+					{{ tomato.title }}
+					</td>
+				</tr>
+					<td colspan="2">
+					<img src="{{ tomato.posters.thumbnail }}" alt="{{ tomato.original}}" />
+					</td>
+
+				</tr>
+			</table>
+			</td>
+
+		</tr>	
+	{% endfor %} 
+	</table>
+{% endblock %}
+

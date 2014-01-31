@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+   <title>
+      {% block title %}AppEngine Test Requests library{% endblock %}
+   </title>
+   <link href="/stylesheets/glike.css" rel="stylesheet"
+         type="text/css" />
+ </head>
+ <body>
+   <div id="header">
+      <ul>
+         <li> <a href="{{ url_logout|safe }}">{{ url_logout_text}}</a></li>
+      </ul>
+   </div>
+   <div id="bodycontent">
+      {% block bodycontent %}
+           Replace this
+      {% endblock %}
+   </div>
+ </body>
+</html>
