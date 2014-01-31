@@ -13,6 +13,18 @@ libraries:
 handlers:
 - url: /stylesheets
   static_dir: stylesheets
+- url: /css
+  static_dir: css 
+- url: /js
+  static_dir: js 
+- url: /img
+  static_dir: img 
+- url: /less
+  static_dir: less 
+- url: /fonts
+  static_dir: fonts 
+
+
 
 - url: /testreq
   script: testrequests.application

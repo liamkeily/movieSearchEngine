@@ -66,7 +66,7 @@ class search(webapp2.RequestHandler):
 		    'search_term':search_term,
 		    'results':response
         	}
-		doRender(self,'testreq.htm',template_values)
+		doRender(self,'index.html',template_values)
         else:
             self.redirect(users.create_login_url(self.request.uri))
 
