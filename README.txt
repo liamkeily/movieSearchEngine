@@ -1,2 +1,11 @@
-This directory exists so that 3rd party packages can be installed
-here.  Read the source for site.py for more details.
+# Movie Search Engine
+
+## Introduction
+
+This is a university project for 321COM
+
+## Authors
+
+Jake Brown
+Liam Keily
+Michael Green
