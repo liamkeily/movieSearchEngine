@@ -19,6 +19,7 @@
 	</form>
 	
 	<table>
+	{% if results.status == 200 %}
 	{% for tomato in results.tomatosdata.movies %}
 		<tr>
 
@@ -40,6 +41,7 @@
 
 		</tr>	
 	{% endfor %} 
+	{% endif %}
 	</table>
 {% endblock %}
 

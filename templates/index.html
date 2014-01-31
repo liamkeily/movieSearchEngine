@@ -48,7 +48,7 @@
 					</ul>
 					<form class="navbar-form navbar-left" role="search">
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Film Title...">
+							<input type="text" name="s" class="form-control" placeholder="Film Title...">
 						</div> <button type="submit" class="btn btn-default">Search</button>
 					</form>
 					<ul class="nav navbar-nav navbar-right">
@@ -75,16 +75,18 @@
 			</div>
 		</div>
 		<div class="col-md-6 column">
+	{% if results.status == 200 %}
+	{% for tomato in results.tomatosdata.movies %}
 			<div class="row clearfix">
 				<div class="col-md-2 column">
 				</div>
 				<div class="col-md-6 column">
 					<h3 class="text-center">
-						Movie Title
+						{{ tomato.title }}	
 					</h3>
 				</div>
 				<div class="col-md-4 column">
-					<img alt="140x140" src="http://lorempixel.com/140/140/" class="img-rounded">
+					<img alt="140x140" src="{{ tomato.posters.thumbnail }}" class="img-rounded">
 				</div>
 			</div>
 			<dl class="dl-horizontal">
@@ -92,35 +94,41 @@
 					Description
 				</dt>
 				<dd>
-					A description list is perfect for defining terms.
+					{{ tomato.synopsis }}	
 				</dd>
 				<dt>
 					Title Cast
 				</dt>
 				<dd>
-					Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+					<ul>
+					{% for cast in tomato.abridged_cast %}					
+						<li>{{cast.name}} ({{cast.characters[0]}})  </li>
+					{% endfor %}
+					</ul>
 				</dd>
 
 				<dt>
 					Release Date
 				</dt>
 				<dd>
-					Etiam porta sem malesuada magna mollis euismod.
+					{{ tomato.release_dates.theater }}
 				</dd>
 				<dt>
 					Runtime
 				</dt>
 				<dd>
-					Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+				{{ tomato.runtime }} minutes
 				</dd>
 
 				<dt>
-					Rating
+					Critics Rating
 				</dt>
 				<dd>
-					Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+					{{tomato.ratings.critics_score }}%
 				</dd>
 			</dl>
+		{% endfor %}
+	{% endif %}
 		</div>
 	</div>
 </div>
