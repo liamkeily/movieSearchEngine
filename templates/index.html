@@ -97,16 +97,16 @@
 		{% set i = i + 1 %}
                 <tr class="active">
                   <td>
-                  {{ i }} 
+                  {{ i }}
                   </td>
                   <td>
                    <a href="/?s={{ top.title }}">{{ top.title }}</a>
                   </td>
                   <td>
-                   {{ top.release_dates.theater }} 
+                   {{ top.release_dates.theater }}
                   </td>
                   <td>
-                   {{ top.ratings.critics_score }} 
+                   {{ top.ratings.critics_score }}
                   </td>
                 </tr>
 		{% endfor %}
@@ -123,7 +123,7 @@
 				</div>
 				<div class="col-md-6 column">
 					<h3 class="text-center">
-						{{ tomato.title }}	
+						{{ tomato.title }}
 					</h3>
 				</div>
 				<div class="col-md-4 column">
@@ -135,15 +135,15 @@
 					Description
 				</dt>
 				<dd>
-					{{ tomato.synopsis }}	
+					{{ tomato.synopsis }}
 				</dd>
 				<dt>
 					Title Cast
 				</dt>
 				<dd>
-				{% if tomato.abridged_cast %}	
+				{% if tomato.abridged_cast %}
 					<ul>
-					{% for cast in tomato.abridged_cast %}					
+					{% for cast in tomato.abridged_cast %}
 						<li>{{cast.name}} </li>
 					{% endfor %}
 					</ul>
@@ -172,6 +172,29 @@
 			</dl>
 		{% endfor %}
 	{% endif %}
+
+  <div class="tabbable" id="tabs-639419">
+          <ul class="nav nav-tabs">
+            <li class="active">
+              <a href="#panel-513156" data-toggle="tab">Trailer</a>
+            </li>
+            <li>
+              <a href="#panel-205005" data-toggle="tab">Cinemas</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="panel-513156">
+              <p>
+                Trailer For Film
+              </p>
+            </div>
+            <div class="tab-pane" id="panel-205005">
+              <p>
+                Local Cinema
+              </p>
+            </div>
+          </div>
+        </div>
 		</div>
 	</div>
 </div>
