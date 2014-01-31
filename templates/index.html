@@ -48,7 +48,7 @@
 					</ul>
 					<form class="navbar-form navbar-left" role="search">
 						<div class="form-group">
-							<input type="text" name="s" class="form-control" placeholder="Film Title...">
+							<input type="text" name="s" value="{{search_term}}" class="form-control" placeholder="Film Title...">
 						</div> <button type="submit" class="btn btn-default">Search</button>
 					</form>
 					<ul class="nav navbar-nav navbar-right">
@@ -92,77 +92,26 @@
                 </tr>
               </thead>
               <tbody>
+		{% set i = 0 %}
+		{% for top in results.top10.movies %}
+		{% set i = i + 1 %}
                 <tr class="active">
                   <td>
-                    1
+                  {{ i }} 
                   </td>
                   <td>
-                    Film 1
+                   <a href="/?s={{ top.title }}">{{ top.title }}</a>
                   </td>
                   <td>
-                    01/04/2012
+                   {{ top.release_dates.theater }} 
                   </td>
                   <td>
-                    92%
+                   {{ top.ratings.critics_score }} 
                   </td>
                 </tr>
-                <tr>
-                  <td>
-                    2
-                  </td>
-                  <td>
-                    Film 2
-                  </td>
-                  <td>
-                    01/04/2012
-                  </td>
-                  <td>
-                    43%
-                  </td>
-                </tr>
-                <tr class="active">
-                  <td>
-                    3
-                  </td>
-                  <td>
-                    Film 3
-                  </td>
-                  <td>
-                    02/04/2012
-                  </td>
-                  <td>
-                    77%
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    4
-                  </td>
-                  <td>
-                    Film 4
-                  </td>
-                  <td>
-                    03/04/2012
-                  </td>
-                  <td>
-                    34%
-                  </td>
-                </tr>
-                <tr class="active">
-                  <td>
-                    5
-                  </td>
-                  <td>
-                    Film 5
-                  </td>
-                  <td>
-                    04/04/2012
-                  </td>
-                  <td>
-                    60%
-                  </td>
-                </tr>
-              </tbody>
+		{% endfor %}
+            </tbody>
+
             </table>
           </div>
 		</div>
@@ -192,11 +141,13 @@
 					Title Cast
 				</dt>
 				<dd>
+				{% if tomato.abridged_cast %}	
 					<ul>
 					{% for cast in tomato.abridged_cast %}					
-						<li>{{cast.name}} ({{cast.characters[0]}})  </li>
+						<li>{{cast.name}} </li>
 					{% endfor %}
 					</ul>
+				{% endif %}
 				</dd>
 
 				<dt>

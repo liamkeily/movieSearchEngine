@@ -27,6 +27,7 @@ class Response(object):
 	tomatosdata = ""
 	mapdata = ""
 	imdbdata = ""
+	top10 = ""
 
 class ErrorResponse(object):
 	status = 301
@@ -47,15 +48,17 @@ class search(webapp2.RequestHandler):
 		r1 = requests.get('http://www.omdbapi.com/?s=' + search_term)
 		response.imdbdata = r1.json()
 
-		r2 = requests.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' + search_term + '&sensor=true&key=AIzaSyBKY1foHHgB4TAIS--roteOO_hfU2inZOc')
-		response.mapsdata = r2.json()
+
 
 
 	else:
 		response = ErrorResponse()
 		response.status = 301
 		response.text = "No search term"
-			
+
+	r3 = requests.get('http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=dz92w5jph4fdf723894jydan&limit=10&country=uk');
+	response.top10 = r3.json();
+		
 
         if user:
 		logout_url = users.create_logout_url(self.request.path)
