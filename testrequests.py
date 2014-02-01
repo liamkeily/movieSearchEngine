@@ -27,6 +27,7 @@ class Response(object):
 	tomatosdata = ""
 	mapdata = ""
 	imdbdata = ""
+	youtube = ""
 	top10 = ""
 
 class ErrorResponse(object):
@@ -48,8 +49,8 @@ class search(webapp2.RequestHandler):
 		r1 = requests.get('http://www.omdbapi.com/?s=' + search_term)
 		response.imdbdata = r1.json()
 
-
-
+		r2 = requests.get('http://gdata.youtube.com/feeds/api/videos?q=' + search_term + ' trailer&alt=json&key=AI39si6yd23pxhzYn5BxyV_Tl1I5aCUDwDG7Xh7DhLYQej1L7h_rTjHyNvVoguGrBLx_X6QqTKpvuQ2lECfP-3YuoIY_O5ctEg')
+		response.youtube = r2.json();
 
 	else:
 		response = ErrorResponse()
