@@ -46,9 +46,6 @@ class search(webapp2.RequestHandler):
 		r = requests.get('http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=dz92w5jph4fdf723894jydan&q=' + search_term + '&page_limit=1')
 		response.tomatosdata = r.json()
 
-		//r1 = requests.get('http://www.omdbapi.com/?s=' + search_term)
-//		response.imdbdata = r1.json()
-
 		r2 = requests.get('http://gdata.youtube.com/feeds/api/videos?q=' + search_term + ' trailer&alt=json&key=AI39si6yd23pxhzYn5BxyV_Tl1I5aCUDwDG7Xh7DhLYQej1L7h_rTjHyNvVoguGrBLx_X6QqTKpvuQ2lECfP-3YuoIY_O5ctEg')
 		response.youtube = r2.json();
 
