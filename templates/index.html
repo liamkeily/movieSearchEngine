@@ -196,7 +196,7 @@
                 Local Cinema
                 {% if results.cinemas %}
                 {% for cinema in results.cinemas.cinemas %}
-                	{{ cinema }}
+                	<p><a href="{{ cinema.cinema_url }}">{{ cinema.name }}</a></p>
                 {% endfor %}
                 {% endif %}
               </p>
