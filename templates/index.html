@@ -194,7 +194,11 @@
             <div class="tab-pane" id="panel-205005">
               <p>
                 Local Cinema
-                {{results.cinemas}}
+                {% if results.cinemas %}
+                {% for cinema in results.cinemas.cinemas %}
+                	{{ cinema }}
+                {% endfor %}
+                {% endif %}
               </p>
             </div>
           </div>
